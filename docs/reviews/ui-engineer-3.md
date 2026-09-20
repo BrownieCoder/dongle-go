@@ -2,7 +2,7 @@
 
 2026-09-20。审查者未参与实现，仅修改本报告。范围：新版 `app.py`、`ui.py`、`i18n.py`、GUI 测试、依赖与资源打包、资产及许可说明。硬件配置与真机网络验收不在本轮通过结论内。
 
-**当前软件评分 94/100；源码交互问题已修复，等待新版分发产物证据后最终签核。** 旧版纯 Tk UI 的 CI 通过不能证明本轮新增 CustomTkinter/Pillow/PNG 资产可打包运行。
+**最终软件评分 96/100，通过本轮漫画 UI 软件审查；硬件仍未验收。** 初审 94 分与待补证据保留在下文；末节记录新版分发 CI 独立核实结果。旧版纯 Tk UI 的 CI 未被用于替代本轮新增 CustomTkinter/Pillow/PNG 资产验证。
 
 ## 独立发现及修复复验
 
@@ -50,3 +50,24 @@ UI 布局拆到 ModernView，后台操作仍通过工作线程和 Queue，Tk 主
 - `scripts/build.py`: `8377739bcd3b8292620a0c80f727dd56b0d6325d8ae371ea80f4fa7534245a67`
 
 **硬件尚未验收，软件 UI 分数不能用于宣称真机兼容或成熟 MVP 完成。**
+
+## 新版分发证据与最终签核
+
+独立执行 `gh run view 35504437091 --repo BrownieCoder/dongle-go --json headSha,status,conclusion,jobs,url`，核实 [新版 CI](https://github.com/BrownieCoder/dongle-go/actions/runs/35504437091) 已完整结束，三平台均 `success`，对应提交 `9003c9c11b0eb934c9bca3931e794b0814e56280`。通过 `git diff` 确认本次审核的源码、依赖、构建及 GUI 测试与该提交无差异。
+
+- [Windows job 106061745294](https://github.com/BrownieCoder/dongle-go/actions/runs/35504437091/job/106061745294)：原生测试、构建、解压 ZIP 后启动 smoke、报告与分发产物上传成功。
+- [macOS job 106061745313](https://github.com/BrownieCoder/dongle-go/actions/runs/35504437091/job/106061745313)：上述对应步骤全部成功。
+- [Linux job 106061745171](https://github.com/BrownieCoder/dongle-go/actions/runs/35504437091/job/106061745171)：虚拟显示下测试及文档检查成功；不因此声明有 Linux 安装包。
+
+读取主代理下载的两平台 CI smoke JSON，均为 `ok: true`，完整包含 8 项：真实窗口、serial/USB 导入、bundled libusb、模拟检查/配置/恢复、语言切换，且 `hardware_accessed` 与 `internet_verified` 均为 false。下载报告与 checksum 属于 CI 证据复核，没有被写成审查者亲自操作 Windows 桌面。
+
+CI 记录的分发 SHA-256：
+
+```text
+24adba50bcab175d4f733f751e1967c74d904f68980b550c5bf0213d157bd83a  Dongle-Go-Windows-AMD64-preview.zip
+1e4023b3a7e469a387ff9c2bb63824fd13069eac657a9c7107a9536f4490c686  Dongle-Go-Darwin-arm64-preview.zip
+```
+
+**最终：产品正确性 29/30 + 易用与双语 24/25 + 分发可靠 24/25 + 测试与文档 19/20 = 96/100。** 新版双平台冻结包运行证据补齐分发 2 分；其余扣分保留。无本轮发现的未关闭 P0/P1，焦点显示、过时测试断言和依赖清单问题已关闭。
+
+签核限于所列提交的开发预览软件。仍未覆盖消费者系统签名/公证、读屏、多 DPI、真实新手试用及 Windows 11 干净系统驱动体验；真机与 iPad 目标设备验收继续待后续完成。

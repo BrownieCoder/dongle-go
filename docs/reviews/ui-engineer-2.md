@@ -1,6 +1,6 @@
 # UI 重设计独立复审：工程师 2
 
-2026-09-20；审核者未参与 UI 实现。本轮只编写本报告，没有修改实现或测试文件。
+2026-09-20；最终增量复审版本 `9003c9c11b0eb934c9bca3931e794b0814e56280`。审核者未参与 UI 实现。本轮只编写本报告，没有修改实现或测试文件。
 
 **当前复审软件评分 96/100，无本轮发现的未关闭 P0/P1/P2。** 这是代码、控件交互与软件故障隔离评分；不代表 Windows 本机、真机兼容或成熟 MVP 交付验收通过。
 
@@ -11,7 +11,7 @@
 ## 独立执行证据
 
 1. `PYTHONPATH=src:tests .venv-tk/bin/python -m unittest test_core test_transport test_usb_transport test_i18n -v`：**52 项通过**。
-2. `PYTHONPATH=src:tests .venv-tk/bin/python -m unittest test_app -v`：请求提升权限访问 macOS 窗口服务，**4 项真实 CTk GUI 测试通过**。覆盖 demo 检查/配置/恢复、中英切换、变更目标撤销 ready、未知固件禁用写入、空设备列表清空选择。
+2. `PYTHONPATH=src:tests .venv-tk/bin/python -m unittest test_app -v`：请求提升权限访问 macOS 窗口服务，**6 项真实 CTk GUI 测试通过**。覆盖 demo 检查/配置/恢复、中英切换、变更目标撤销 ready、未知固件禁用写入、空设备列表清空选择，另覆盖键盘选择与禁用动作、780×620 紧凑窗口下焦点自动滚动。
 3. 另外亲自运行真实 CTk 窗口下的独立故障注入脚本：用 threading.Event 暂停 service.plan，记录工作线程 ID，调用两次操作并尝试切换目标、关闭窗口、切换语言，随后释放工作线程。全部断言通过：
    - service.plan 工作线程与 Tk 主线程不同。
    - 忙时刷新、检查、配置、恢复、三个目标按钮、设备选择框均禁用。
@@ -37,7 +37,7 @@
 |---|---:|---|
 | 正确性 | 34/35 | 迁移后的状态、门禁与目标选择无回归；Windows 控件与 OS 集成未在本轮独立运行，保留 1 分 |
 | 恢复与操作安全 | 25/25 | 原核心校验保持，忙时操作与关闭保护经独立阻塞注入验证；不将真机恢复计入软件分 |
-| 测试 | 23/25 | 52 项非 GUI、4 项真实 GUI及独立并发/关闭脚本；完整多 OS/DPI 与辅助技术矩阵未执行，扣 2 分 |
+| 测试 | 23/25 | 52 项非 GUI、6 项真实 GUI及独立并发/关闭脚本；完整多 OS/DPI 与辅助技术矩阵未执行，扣 2 分 |
 | 维护性 | 14/15 | UI 与操作控制分离，依赖固定；FocusButton 依赖 CTk 私有 `_canvas`，升级需要专项回归，扣 1 分 |
 | 总计 | **96/100** | 软件代码与交互范围 |
 
@@ -46,7 +46,13 @@
 ## 版本指纹
 
 - app.py：`ba8071a70267d53458f26b1629f3380c0759c16b06ba5c806ff345df0614ef8e`
-- ui.py：`79013647f2ac10a4e4d3a7be8013ee1c9a726d6b3e8a67fefec63bbd2fe06b34`
+- ui.py：`5f77f857db4438c128ef00bdbaed8e777da8ebe9b5bbaec1242e6ef8b0b85123`
 - core.py：`d780d845f1f3c5a74c96dd331b4e15f1a98de5acb7f069cfd4237c55f048a210`
 - transport.py：`470bf0850f8d12212f503d2b5f6f4933181b12f9079ffa25c475860405f943b4`
 - usb_transport.py：`0aea3acd2598fec31826fbb64bf38bdd8bb647569ee6d4628492a5cd8d870119`
+
+## 最终增量复审
+
+重新阅读 KeyboardComboBox 上下键循环、禁用状态检查、FocusIn 自动滚动与琥珀色按钮焦点增量。六项 GUI 回归在本机真实窗口服务上全部通过；随后独立生成实际 Tk `<Down>`、`<Up>` 和 `<Return>` 事件，确认语言切换、端口切换撤销 ready、目标键盘选择及焦点进入时琥珀描边均生效。这项检查未只调用内部 `_cycle` 方法。新增入口未绕过 busy/ready 门禁，维持软件评分 96/100。
+
+未将主实现者报告的安装包烟雾测试或尚在运行的 CI 写作本人的独立执行证据；本轮只确认源码 GUI 和上述实际键盘事件。最终 tests/test_app.py SHA-256：`ecb1b12cbbe4347c8502771a984a5bb7dba2d8413d7fb294745d7d7ca1432246`。

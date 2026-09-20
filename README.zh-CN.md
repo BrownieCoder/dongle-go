@@ -14,7 +14,7 @@
 
 [Mac / Windows 下载与打开步骤](docs/downloads.md)：无需安装 Python。临时 CI 产物需要登录 GitHub 下载，真实配置仍锁定。
 
-软件三审：**97 / 96 / 96 分**。[验证记录](docs/verification.md)包含 Windows/macOS 打包启动及 Linux 测试证据；真机验收独立进行，目前尚未通过。
+初版软件三审：**97 / 96 / 96 分**。新版采用漫画猫、圆角设备卡片及中英界面，详见[界面更新](docs/ui-redesign.md)。[验证记录](docs/verification.md)包含 Windows/macOS 打包启动及 Linux 测试证据；真机验收独立进行，目前尚未通过。
 
 ## 先准备这几样
 

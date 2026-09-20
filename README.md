@@ -14,7 +14,7 @@ Dongle Go aims to replace terminal commands with a guided setup: connect your do
 
 [Mac / Windows downloads and opening steps](docs/downloads.md) — no Python installation required. GitHub sign-in is needed for these temporary CI artifacts. Real configuration is still locked.
 
-Software reviews: **97 / 96 / 96**. [Evidence](docs/verification.md) includes Windows/macOS packaged-app execution and Linux tests. Hardware acceptance is separate and still pending.
+Original software reviews: **97 / 96 / 96**. The [illustrated UI update](docs/ui-redesign.md) adds device cards, keyboard navigation and a bilingual cat-guided layout. [Evidence](docs/verification.md) includes Windows/macOS packaged-app execution and Linux tests. Hardware acceptance is separate and still pending.
 
 ## What you need
 
