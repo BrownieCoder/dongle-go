@@ -35,3 +35,7 @@ Application commit: `9003c9c11b0eb934c9bca3931e794b0814e56280`. [CI run 35504437
 Local macOS: 58 tests passed, including six real CTk tests covering keyboard selection, disabled actions and compact-window focus visibility. Local packaged ZIP also passed all eight smoke checks. The actual packaged Chinese and English interfaces and keyboard-driven check/apply demonstration were visually inspected. Updated download checksum values are taken from this run's checksum artifacts.
 
 Physical hardware acceptance remains pending. / 真机验收仍待完成。
+
+## Current downloadable packages
+
+[Build 35504671243](https://github.com/BrownieCoder/dongle-go/actions/runs/35504671243), commit `b9828bc`, passed all three platform jobs. Both downloadable ZIPs were downloaded and their SHA-256 hashes recomputed against the checksum artifacts. Each packaged-app report contains eight passing simulation checks; hardware and internet verification remain false. See [downloads](downloads.md) for the matching artifacts.
