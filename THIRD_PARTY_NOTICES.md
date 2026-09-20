@@ -26,4 +26,4 @@ Dongle Go uses libusb as a shared library through PyUSB. There are no Dongle Go 
 
 Before publication, inventory the actual packaged Python/Tcl/Tk versions and any additional bundled native libraries, refresh their applicable license notices, and verify the complete `licenses/` folder and corresponding sources are present in each ZIP. The reference notices here do not certify every possible Python distributor's dependency bundle.
 
-Windows manufacturer drivers are not included or redistributed. Obtain drivers only from their manufacturer; do not disable driver signature enforcement. Generated comic assets were created for this project with OpenAI ImageGen; their prompts and visual review record are in [assets.md](docs/assets.md).
+Windows manufacturer drivers are not included or redistributed. Obtain drivers only from their manufacturer; do not disable driver signature enforcement. Project illustrations are listed in [assets.md](docs/assets.md).

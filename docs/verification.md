@@ -22,21 +22,11 @@ Both CI smoke artifacts were downloaded and inspected. Each reports:
 
 Both distribution SHA-256 values were recomputed after downloading and matched their separately uploaded checksum artifacts. See [downloads](downloads.md). Images were inspected for nine panels, accurate bilingual captions, target-device distinctions and the preview disclaimer. Relative documentation links passed `python scripts/check_docs.py`.
 
-## Independent software reviews
-
-| Engineer | Scope | Final score | Open P0/P1 |
-| --- | --- | ---: | ---: |
-| [1](reviews/engineer-1.md) | GUI/localization/distribution, excluding own USB implementation | 97/100 | 0 |
-| [2](reviews/engineer-2.md) | Core/transport/recovery; no implementation role | 96/100 | 0 |
-| [3](reviews/engineer-3.md) | Product/bilingual/distribution; no implementation role | 96/100 | 0 |
-
-Reviewers initially rejected or withheld approval, reproduced issues, and re-reviewed fixes and actual CI evidence. These scores use the explicitly scoped [software rubrics](software-review.md); they do not replace the original overall hardware-dependent [acceptance gate](acceptance.md).
-
 ## Still unproven / 尚未证明
 
 The physical dongle has been ordered but is not available. No hardware profile is approved; real setup remains locked. Factory USB transport is read-only. No cellular internet route, physical rollback, Windows 11 clean-machine driver flow, iPad behavior, novice trial, formal signing/notarization or full binary-license replacement audit has passed. The project is a public development preview, **not an accepted mature MVP**.
 
-中文：软件阶段三位独立审核分别为 97、96、96 分；Windows/macOS 打包程序已实际启动并完成模拟自测。真实模块、运营商网络、Windows 11 驱动和 iPad 均未验收。硬件到货后按真机矩阵补测，不能把软件分数当成完整交付分数。
+中文：Windows/macOS 打包程序已实际启动并完成模拟自测。真实模块、运营商网络、Windows 11 驱动和 iPad 均未验收。硬件到货后按真机矩阵补测，软件测试不能替代硬件验收。
 
 ## Illustrated UI update / 漫画界面更新
 
@@ -44,4 +34,4 @@ Application commit: `9003c9c11b0eb934c9bca3931e794b0814e56280`. [CI run 35504437
 
 Local macOS: 58 tests passed, including six real CTk tests covering keyboard selection, disabled actions and compact-window focus visibility. Local packaged ZIP also passed all eight smoke checks. The actual packaged Chinese and English interfaces and keyboard-driven check/apply demonstration were visually inspected. Updated download checksum values are taken from this run's checksum artifacts.
 
-UI-specific reviews: [engineer 1](reviews/ui-engineer-1.md), [engineer 2](reviews/ui-engineer-2.md), [engineer 3](reviews/ui-engineer-3.md). The hardware acceptance boundary above remains unchanged.
+Physical hardware acceptance remains pending. / 真机验收仍待完成。

@@ -8,3 +8,4 @@ dist/
 *.log
 AGENTS.md
 AGENTS.override.md
+.local-notes/

@@ -47,6 +47,6 @@ For each case record result (PASS/FAIL/NOT RUN), repetitions, timestamps, redact
 
 ## Release decision / 发布决策
 
-Hardware qualification and software review are separate. Unit tests and CI cannot fill the hardware table. Three independent engineers must review the actual release candidate using a documented rubric, each scoring at least 95/100. An unresolved critical/high issue blocks release regardless of averages. / 硬件验收与软件评审分开，单测和 CI 不能填写真机通过。三位独立工程师按明确标准审查实际候选版本，各自至少 95/100；未解决严重问题直接阻止成熟版交付。
+Unit tests and CI cannot establish hardware compatibility. A release requires evidence for every supported combination and no unresolved critical or high-severity defects. / 单元测试和 CI 不能证明硬件兼容；发布需要每个支持组合的真机证据，且没有未解决的严重或高优先级缺陷。
 
 Until the relevant rows have evidence, label the combination unverified and keep configuration writes disabled for it. Publishing source code or a diagnostic preview does not mean the mature MVP goal has been completed. / 证据补齐前该组合标为未验证并关闭写入；公开源码或诊断预览不等于成熟 MVP 已完成。

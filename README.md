@@ -6,7 +6,7 @@
 
 Dongle Go aims to replace terminal commands with a guided setup: connect your dongle, check compatibility, and configure USB internet access. This is **not Wi-Fi broadcasting**: the dongle stays connected to the device by USB.
 
-> **Development preview — not a hardware-validated release.** No supported hardware/OS combination has passed the physical-device acceptance matrix yet. Do not buy a dongle based on this project’s compatibility claims. A mature MVP requires three independent engineering reviews, each scoring at least 95/100, plus the physical-device checks in [acceptance criteria](docs/acceptance.md).
+> **Development preview — not a hardware-validated release.** No supported hardware/OS combination has passed the physical-device acceptance matrix yet. Do not buy a dongle based on this project’s compatibility claims. Supported configurations will be listed after completing the [hardware tests](docs/acceptance.md).
 
 ![Nine-panel illustrated beginner tutorial](assets/tutorial-en.png)
 
@@ -14,7 +14,7 @@ Dongle Go aims to replace terminal commands with a guided setup: connect your do
 
 [Mac / Windows downloads and opening steps](docs/downloads.md) — no Python installation required. GitHub sign-in is needed for these temporary CI artifacts. Real configuration is still locked.
 
-Original software reviews: **97 / 96 / 96**. The [illustrated UI update](docs/ui-redesign.md) adds device cards, keyboard navigation and a bilingual cat-guided layout. [Evidence](docs/verification.md) includes Windows/macOS packaged-app execution and Linux tests. Hardware acceptance is separate and still pending.
+The [illustrated UI update](docs/ui-redesign.md) adds device cards, keyboard navigation and a bilingual cat-guided layout. [Evidence](docs/verification.md) includes Windows/macOS packaged-app execution and Linux tests. Hardware acceptance is separate and still pending.
 
 ## What you need
 
@@ -55,7 +55,7 @@ Hardware acceptance is scheduled for when a physical dongle is available. Until 
 
 - [Beginner guide](docs/getting-started.md): understand the steps and the difference between a preview and real setup.
 - [Troubleshooting](docs/troubleshooting.md): what to do when detection, SIM access or internet access fails.
-- [Release acceptance](docs/acceptance.md): review rules and the real-hardware test matrix.
+- [Release acceptance](docs/acceptance.md): release requirements and the hardware test matrix.
 
 The intended primary action is **Set up internet**, not “flash firmware.” Configuration can change the dongle’s USB interface mode and make it disconnect briefly. Firmware replacement, IMEI changes, carrier bypasses, and DJI built-in eSIM unlocking are outside this project’s scope.
 
