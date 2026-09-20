@@ -30,12 +30,12 @@ Record the exact dongle model, USB VID/PID, firmware revision, host OS/build, ap
 
 | Setup computer / 配置电脑 | Destination / 上网设备 | Required scenarios / 必测场景 | Status / 状态 |
 | --- | --- | --- | --- |
-| Apple Silicon Mac | Same Mac / 同一 Mac | First setup; 10 cold reconnects; reboot; 5 sleep/wake cycles; SIM missing; no signal; restore / 首次配置、10 次冷插拔、重启、5 次睡眠唤醒、无卡、无信号、恢复 | Not tested / 未测 |
-| Intel Mac | Same Mac / 同一 Mac | Same scenarios if claiming Intel support / 宣称支持 Intel 时同上 | Not tested; not supported yet / 未测，暂不支持承诺 |
-| Windows 11 x64 | Same PC / 同一电脑 | Above plus clean-machine driver installation and standard-user launch / 同上，加全新系统驱动安装与普通用户启动 | Not tested / 未测 |
-| Windows 10 or ARM Windows | Same PC / 同一电脑 | Separate OS/architecture qualification before claiming support / 声明支持前按系统及架构单独认证 | Not tested; not supported yet / 未测，暂不支持承诺 |
-| Apple Silicon Mac | USB-C iPad, exact model/iPadOS / 确切型号与 iPadOS | Setup on Mac; transfer; actual data route; 10 reconnects; lock/wake; power; return and restore on Mac / Mac 配置、转接、实际流量、10 次拔插、锁屏唤醒、供电、回 Mac 恢复 | Not tested; experimental / 未测，实验性 |
-| Windows 11 x64 | USB-C iPad, exact model/iPadOS / 确切型号与 iPadOS | Separate transfer/recovery test for Windows setup path / Windows 配置路径单独测试转接及恢复 | Not tested; experimental / 未测，实验性 |
+| Apple Silicon Mac | Same Mac / 同一 Mac | First setup; 10 cold reconnects; reboot; 5 sleep/wake cycles; SIM missing; no signal; restore / 首次配置、10 次冷插拔、重启、5 次睡眠唤醒、无卡、无信号、恢复 | No device results / 无设备测试结果 |
+| Intel Mac | Same Mac / 同一 Mac | Same scenarios if claiming Intel support / 宣称支持 Intel 时同上 | Configuration unavailable / 不提供配置 |
+| Windows 11 x64 | Same PC / 同一电脑 | Above plus clean-machine driver installation and standard-user launch / 同上，加全新系统驱动安装与普通用户启动 | No device results / 无设备测试结果 |
+| Windows 10 or ARM Windows | Same PC / 同一电脑 | Separate OS/architecture qualification before claiming support / 声明支持前按系统及架构单独认证 | Configuration unavailable / 不提供配置 |
+| Apple Silicon Mac | USB-C iPad, exact model/iPadOS / 确切型号与 iPadOS | Setup on Mac; transfer; actual data route; 10 reconnects; lock/wake; power; return and restore on Mac / Mac 配置、转接、实际流量、10 次拔插、锁屏唤醒、供电、回 Mac 恢复 | Configuration unavailable / 不提供配置 |
+| Windows 11 x64 | USB-C iPad, exact model/iPadOS / 确切型号与 iPadOS | Separate transfer/recovery test for Windows setup path / Windows 配置路径单独测试转接及恢复 | Configuration unavailable / 不提供配置 |
 
 Also test unplugging before/during/after configuration, a wrong/unsupported module, two connected modules, a busy serial port, malformed replies, operation timeout, unrelated internet routes and a mismatched recovery snapshot. Hardware tests must document whether an interrupted write changed persistent settings. / 还需测配置前中后拔线、不支持模块、双模块、串口占用、异常响应、超时、其他网络干扰及备份不匹配；中断写入需确认是否改变持久配置。
 

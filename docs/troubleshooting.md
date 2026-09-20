@@ -2,7 +2,7 @@
 
 [简体中文](troubleshooting.zh-CN.md) · English
 
-The current build is a development preview with an empty firmware allowlist. Real configuration is intentionally unavailable until exact firmware versions pass hardware validation. The demo does not change this.
+This build has no enabled firmware profiles. Device diagnostics are read-only, and the demo simulates configuration without changing hardware.
 
 | What you see | What to do |
 | --- | --- |

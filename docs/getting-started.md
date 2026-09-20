@@ -2,7 +2,7 @@
 
 [简体中文](getting-started.zh-CN.md) · English
 
-**This is a development preview. The flow below describes the intended physical-device workflow; it is not a claim that your dongle is supported.** Use a demo only to explore the interface: simulated success does not configure hardware or prove internet access.
+**Start with Check connection. Setup requires an enabled firmware profile; this build provides read-only diagnostics and a demo.** Use a demo only to explore the interface: simulated success does not configure hardware or prove internet access.
 
 The current factory USB backend performs read-only diagnostics. It does not configure, reset or reboot a dongle and does not install a Windows USB driver. If no compatible driver is available, stop at diagnosis and wait for a validated workflow.
 
@@ -34,6 +34,6 @@ For iPad, connect the configured dongle and check Settings for an Ethernet entry
 
 ## 6. Verify everyday use
 
-Before relying on the dongle, test unplugging and reconnecting it, rebooting the computer and waking it from sleep. iPad needs its own reconnection test. A single successful setup is not sufficient for the mature-MVP acceptance gate.
+Before relying on the dongle, test unplugging and reconnecting it, rebooting the computer and waking it from sleep. iPad needs its own reconnection test. Check these everyday scenarios before relying on the connection.
 
 If a step fails, use [troubleshooting](troubleshooting.md). The public release must include a validated recovery procedure before it can be recommended to beginners.

@@ -122,10 +122,10 @@ class USBATTransport:
                     self.reserved = False
 
     def set_usbnet(self, value):
-        raise TransportError('USB configuration writes are disabled pending hardware qualification.')
+        raise TransportError('This USB transport supports read-only diagnostics, not configuration writes.')
 
     def reboot(self):
-        raise TransportError('USB reboot is disabled pending hardware qualification.')
+        raise TransportError('This USB transport supports read-only diagnostics, not reboot.')
 
     def query(self, command):
         if command not in READ_COMMANDS:
