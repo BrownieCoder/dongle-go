@@ -5,13 +5,16 @@ import platform
 import queue
 import threading
 import tkinter as tk
-from tkinter import messagebox, ttk
+import customtkinter as ctk
+from tkinter import messagebox
+
+from .ui import ModernView, CANVAS
 
 from .core import CoreError, DongleService
 from .i18n import error_key, tr
 
 
-class App:
+class App(ModernView):
     def __init__(self, root, service, language="en"):
         self.root, self.service, self.language = root, service, language
         self.events = queue.Queue()
@@ -25,9 +28,9 @@ class App:
         self.port = tk.StringVar()
         self.lang = tk.StringVar(value="中文" if language == "zh" else "English")
         root.title("Dongle Go · USB 4G")
-        root.geometry("800x740")
-        root.minsize(720, 700)
-        root.configure(bg="#F6F4EC")
+        root.geometry(f"{min(1060, root.winfo_screenwidth()-60)}x{min(790, root.winfo_screenheight()-100)}")
+        root.minsize(780, 620)
+        root.configure(bg=CANVAS)
         root.protocol("WM_DELETE_WINDOW", self.close)
         self._build()
         root.after(100, self._poll)
@@ -35,97 +38,6 @@ class App:
 
     def t(self, key):
         return tr(self.language, key)
-
-    def _build(self):
-        style = ttk.Style(self.root)
-        style.theme_use("clam")
-        style.configure("TFrame", background="#F6F4EC")
-        style.configure("TLabel", background="#F6F4EC", foreground="#173A35", font=("Arial", 12))
-        style.configure("TButton", font=("Arial", 12), padding=(14, 10))
-        style.configure("Primary.TButton", background="#186B58", foreground="white", font=("Arial", 14, "bold"), padding=(18, 16))
-        style.map("Primary.TButton", background=[("disabled", "#D5DED5"), ("active", "#125443")], foreground=[("disabled", "#4C6258")])
-        style.configure("TCombobox", padding=7, font=("Arial", 12))
-        self.frame = ttk.Frame(self.root, padding=30)
-        self.frame.pack(fill="both", expand=True)
-        f = self.frame
-        f.columnconfigure(0, weight=1)
-        top = ttk.Frame(f)
-        top.grid(row=0, column=0, sticky="ew")
-        top.columnconfigure(0, weight=1)
-        ttk.Label(top, text="Dongle Go", font=("Arial", 29, "bold")).grid(row=0, column=0, sticky="w")
-        self.language_box = ttk.Combobox(top, textvariable=self.lang, values=("中文", "English"), state="readonly", width=9)
-        self.language_box.grid(row=0, column=1)
-        self.language_box.bind("<<ComboboxSelected>>", self.change_language)
-        self.tagline = ttk.Label(f)
-        self.tagline.grid(row=1, column=0, sticky="w", pady=(8, 18))
-        self.banner = tk.Label(f, anchor="w", padx=14, pady=12, bg="#F4E7AE", fg="#493B13", font=("Arial", 11, "bold"))
-        self.banner.grid(row=2, column=0, sticky="ew")
-        self.steps = ttk.Label(f, wraplength=730, font=("Arial", 12, "bold"))
-        self.steps.grid(row=3, column=0, sticky="w", pady=(24, 20))
-        self.target_label = ttk.Label(f, font=("Arial", 13, "bold"))
-        self.target_label.grid(row=4, column=0, sticky="w")
-        targets = ttk.Frame(f)
-        targets.grid(row=5, column=0, sticky="w", pady=(8, 5))
-        self.radios = []
-        for key, label in (("mac", "Mac"), ("windows", "Windows"), ("ipad", "iPad")):
-            button = ttk.Radiobutton(targets, text=label, variable=self.target, value=key, command=self.selection_changed)
-            button.pack(side="left", padx=(0, 28), ipady=4)
-            self.radios.append(button)
-        self.hint = ttk.Label(f, wraplength=710, foreground="#53675F", font=("Arial", 10))
-        self.hint.grid(row=6, column=0, sticky="w", pady=(0, 20))
-        self.device_label = ttk.Label(f, font=("Arial", 13, "bold"))
-        self.device_label.grid(row=7, column=0, sticky="w")
-        device_row = ttk.Frame(f)
-        device_row.grid(row=8, column=0, sticky="ew", pady=(8, 14))
-        device_row.columnconfigure(0, weight=1)
-        self.port_box = ttk.Combobox(device_row, textvariable=self.port, state="readonly")
-        self.port_box.grid(row=0, column=0, sticky="ew", padx=(0, 10))
-        self.port_box.bind("<<ComboboxSelected>>", self.selection_changed)
-        self.refresh_button = ttk.Button(device_row, command=self.refresh)
-        self.refresh_button.grid(row=0, column=1)
-        actions = ttk.Frame(f)
-        actions.grid(row=9, column=0, sticky="ew")
-        self.check_button = ttk.Button(actions, command=self.check)
-        self.check_button.pack(side="left", padx=(0, 10))
-        self.setup_button = ttk.Button(actions, style="Primary.TButton", command=self.apply)
-        self.setup_button.pack(side="left", fill="x", expand=True)
-        self.progress = ttk.Progressbar(f, mode="indeterminate")
-        self.progress.grid(row=10, column=0, sticky="ew", pady=(18, 12))
-        self.status_label = ttk.Label(f, wraplength=715, justify="left", font=("Arial", 12))
-        self.status_label.grid(row=11, column=0, sticky="nw")
-        f.rowconfigure(11, weight=1)
-        bottom = ttk.Frame(f)
-        bottom.grid(row=12, column=0, sticky="ew", pady=(20, 0))
-        self.restore_button = ttk.Button(bottom, command=self.restore)
-        self.restore_button.pack(side="left")
-        self.help_button = ttk.Button(bottom, command=self.help)
-        self.help_button.pack(side="right")
-        self._texts()
-        self._controls()
-
-    def _texts(self):
-        for widget, key in ((self.tagline, "tagline"), (self.target_label, "target"),
-                            (self.hint, "target_hint"), (self.device_label, "device"),
-                            (self.refresh_button, "refresh"), (self.check_button, "check"),
-                            (self.setup_button, "setup"), (self.restore_button, "restore"),
-                            (self.help_button, "help")):
-            widget.configure(text=self.t(key))
-        self.banner.configure(text=self.t("demo" if self.service.demo else "preview"))
-        self.steps.configure(text="   →   ".join(self.t(k) for k in ("step1", "step2", "step3")))
-        self._status(self.status_key)
-
-    def _status(self, key):
-        self.status_key = key
-        self.status_label.configure(text=self.t(key))
-
-    def _controls(self):
-        self.refresh_button.configure(state="disabled" if self.busy else "normal")
-        self.check_button.configure(state="normal" if self.port.get() and not self.busy else "disabled")
-        self.setup_button.configure(state="normal" if self.ready and not self.busy else "disabled")
-        self.restore_button.configure(state="normal" if self.port.get() and not self.busy and self.service.status()["recovery_available"] else "disabled")
-        self.port_box.configure(state="disabled" if self.busy else "readonly")
-        for button in self.radios:
-            button.configure(state="disabled" if self.busy else "normal")
 
     def change_language(self, _event=None):
         self.language = "zh" if self.lang.get() == "中文" else "en"
@@ -143,7 +55,7 @@ class App:
         self.busy = True
         self.last_error = ""
         self._status({"apply": "configuring", "restore": "restoring"}.get(operation, "working"))
-        self.progress.start(15)
+        self.progress.start()
         self._controls()
 
         def worker():
@@ -235,7 +147,8 @@ def main():
     language = args.language
     if language is None:
         language = "zh" if (locale.getlocale()[0] or "").lower().startswith("zh") else "en"
-    root = tk.Tk()
+    ctk.set_appearance_mode("light")
+    root = ctk.CTk()
     app = App(root, DongleService(demo=args.demo or bool(args.smoke_test)), language)
     if args.smoke_test:
         from .smoke import schedule

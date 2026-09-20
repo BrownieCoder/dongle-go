@@ -40,3 +40,6 @@ f91cb9813de6a5b142b8f7f2dede630b5134160aedaeaf55f4d6a7e2593ca3f3  pyserial-LICEN
 ```
 
 Reference Python/Tcl/Tk versions are not a claim that every build bundles these exact versions. Release audit must inventory actual runtime/native dependencies and refresh notices when they differ.
+
+## Modern desktop UI dependencies
+The CustomTkinter 5.2.2, Pillow 11.3.0, darkdetect 0.8.0 and packaging 26.3 license files were copied verbatim from the installed distributions' dist-info metadata. Pillow's full wheel notice includes its bundled native dependency notices.

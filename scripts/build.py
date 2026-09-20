@@ -12,7 +12,8 @@ system = platform.system()
 if system not in ('Darwin', 'Windows'):
     raise SystemExit('Desktop packages are currently built on macOS and Windows.')
 subprocess.run([sys.executable, '-m', 'PyInstaller', '--noconfirm', '--clean',
-                '--windowed', '--collect-all', 'libusb_package', '--name', 'Dongle Go', '--paths', str(root / 'src'),
+                '--windowed', '--collect-all', 'libusb_package', '--collect-all', 'customtkinter',
+                '--collect-data', 'dongle_go', '--name', 'Dongle Go', '--paths', str(root / 'src'),
                 '--distpath', str(root / 'dist'), '--workpath', str(root / 'build'),
                 '--specpath', str(root / 'build'),
                 '--osx-bundle-identifier', 'org.donglego.preview',

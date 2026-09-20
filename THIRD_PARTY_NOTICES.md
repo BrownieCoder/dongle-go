@@ -13,6 +13,10 @@ The following notices apply to runtime components and generated desktop distribu
 | PyUSB | 1.3.1 | BSD-3-Clause; [full text](licenses/pyusb-LICENSE.txt) |
 | libusb-package Python wrapper | 1.0.26.3 | Apache-2.0; [full text](licenses/libusb-package-LICENSE.txt) |
 | libusb shared library | 1.0.26; upstream source commit `ba698478afc3d3a72644eef9fc4cd24ce8383a4c` | LGPL-2.1-or-later; [full text](licenses/libusb-COPYING.txt) and corresponding source in `licenses/` |
+| CustomTkinter | 5.2.2 | MIT; [full text](licenses/customtkinter-LICENSE.txt) |
+| Pillow | 11.3.0 | HPND and bundled dependency notices; [full text](licenses/pillow-LICENSE.txt) |
+| darkdetect | 0.8.0 | BSD-3-Clause; [full text](licenses/darkdetect-LICENSE.txt) |
+| packaging | 26.3 in local build; resolved version may vary | Apache-2.0 or BSD-2-Clause; [notice](licenses/packaging-LICENSE.txt), [Apache](licenses/packaging-LICENSE.APACHE.txt), [BSD](licenses/packaging-LICENSE.BSD.txt) |
 | PyInstaller | 6.16.0 | GPL-2.0-or-later with bootloader exception; Apache-2.0 runtime hooks; full upstream terms, exceptions and license texts in [COPYING](licenses/PyInstaller-COPYING.txt) |
 | zlib in PyInstaller bootloader, when included | Version follows the PyInstaller bootloader build | zlib license; [full text](licenses/PyInstaller-zlib-LICENSE.txt) |
 

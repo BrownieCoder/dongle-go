@@ -18,3 +18,6 @@ English localization: preserve the art and nine panels. Translate every caption 
 ## Visual verification
 
 Chinese: nine numbered panels and captions inspected; female USB-C depiction corrected; tutorial status and manual target-device verification visible. The product sketch is explicitly illustrative. English: all nine panels inspected; captions, sequence, target-device distinction, manual verification and preview footer are legible. No Chinese text remains.
+
+## Desktop mascot
+The transparent [desktop mascot](../src/dongle_go/assets/mascot.png) was generated for this redesign with OpenAI ImageGen on 2026-09-20. Prompt: original orange tabby in round glasses, hand-ink charcoal outline, flat orange/cream, holding a USB dongle beside a laptop with one cable; compact silhouette, transparent background, no text or logos. Visually checked in the running desktop interface. It is an illustration, not a hardware specification.
