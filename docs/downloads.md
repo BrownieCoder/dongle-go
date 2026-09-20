@@ -2,12 +2,12 @@
 
 **These packages provide device diagnostics and a setup demo. Real configuration is disabled in this build. / 当前安装包提供设备诊断和配置演示，未启用真实设备配置。**
 
-The following packages were built from commit `b9828bcb3e72f283898c2aca758913a4dd1e6603`. CI unpacked and launched each package and completed all eight hardware-free GUI smoke checks. / 以下构建均经 CI 解压、实际启动，并完成八项无硬件界面验证。
+The following packages were built from commit `8e55bc241652055d7d4c787918e50f5e26093b4d`. CI unpacked and launched each package and completed all eight hardware-free GUI smoke checks. / 以下构建均经 CI 解压、实际启动，并完成八项无硬件界面验证。
 
 | Your computer / 你的电脑 | Download / 下载 |
 | --- | --- |
-| Apple Silicon Mac (M-series) / M 系列 Mac | [macOS ARM64 preview](https://github.com/BrownieCoder/dongle-go/actions/runs/35504671243/artifacts/10602644482) |
-| Windows x64 / 64 位 Windows | [Windows X64 preview](https://github.com/BrownieCoder/dongle-go/actions/runs/35504671243/artifacts/10603073381) |
+| Apple Silicon Mac (M-series) / M 系列 Mac | [macOS ARM64 preview](https://github.com/BrownieCoder/dongle-go/actions/runs/35506590596/artifacts/10604056468) |
+| Windows x64 / 64 位 Windows | [Windows X64 preview](https://github.com/BrownieCoder/dongle-go/actions/runs/35506590596/artifacts/10604790138) |
 
 **GitHub sign-in is required for Actions artifact downloads.** These temporary artifacts can expire; the [Actions page](https://github.com/BrownieCoder/dongle-go/actions) holds newer runs and the repository retains reproducible build instructions. No stable release or automatic updater is provided yet. / **Actions 下载需要登录 GitHub**，临时产物可能过期；可在 Actions 页面查找更新构建。当前没有正式稳定版或自动更新。
 
@@ -26,8 +26,8 @@ For a no-hardware demo, use the [source instructions](../README.md#run-the-devel
 SHA-256 values refer to the **inner distribution ZIP**, not GitHub's outer artifact ZIP. / SHA-256 对应内部软件 ZIP，不是 GitHub 外层 ZIP。
 
 ```text
-c0be90a3c5dc86f3cbeb66a8ec971306f75be362865634392f41ddf6fd7382cc  Dongle-Go-Darwin-arm64-preview.zip
-d50a5fd711ba812af8b269fe6ec0e894b6b0e4e5ac492d34de8e958c39881863  Dongle-Go-Windows-AMD64-preview.zip
+63e967a64a0640630cb99e65e561ba21f4c63a49770ecb35e6cfbeb5a5e7fab6  Dongle-Go-Darwin-arm64-preview.zip
+42eeb22777339f3c77dbecd9e69456fef1e9a4f3dba8d9a8575e472046205f47  Dongle-Go-Windows-AMD64-preview.zip
 ```
 
 macOS: `shasum -a 256 FILE.zip`. Windows PowerShell: `Get-FileHash FILE.zip -Algorithm SHA256`.

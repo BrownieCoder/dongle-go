@@ -38,4 +38,4 @@ Real-device configuration is not enabled. / 未启用真实设备配置。
 
 ## Current downloadable packages
 
-[Build 35504671243](https://github.com/BrownieCoder/dongle-go/actions/runs/35504671243), commit `b9828bc`, passed all three platform jobs. Both downloadable ZIPs were downloaded and their SHA-256 hashes recomputed against the checksum artifacts. Each packaged-app report contains eight passing simulation checks; hardware and internet verification remain false. See [downloads](downloads.md) for the matching artifacts.
+[Build 35506590596](https://github.com/BrownieCoder/dongle-go/actions/runs/35506590596), commit `8e55bc2`, passed all three platform jobs. Both downloadable ZIPs were downloaded and their SHA-256 hashes recomputed against the checksum artifacts. Each packaged-app report contains eight passing simulation checks; hardware and internet verification remain false. See [downloads](downloads.md) for the matching artifacts.
