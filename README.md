@@ -10,6 +10,12 @@ Dongle Go aims to replace terminal commands with a guided setup: connect your do
 
 ![Nine-panel illustrated beginner tutorial](assets/tutorial-en.png)
 
+## Download a runnable preview
+
+[Mac / Windows downloads and opening steps](docs/downloads.md) — no Python installation required. GitHub sign-in is needed for these temporary CI artifacts. Real configuration is still locked.
+
+Software reviews: **97 / 96 / 96**. [Evidence](docs/verification.md) includes Windows/macOS packaged-app execution and Linux tests. Hardware acceptance is separate and still pending.
+
 ## What you need
 
 - A DJI **first-generation** 4G dongle with a compatible Quectel EG25-G module. Similar-looking and second-generation devices are not automatically supported.

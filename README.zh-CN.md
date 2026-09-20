@@ -10,6 +10,12 @@
 
 ![九宫格小白教程](assets/tutorial-zh.png)
 
+## 下载可运行的预览
+
+[Mac / Windows 下载与打开步骤](docs/downloads.md)：无需安装 Python。临时 CI 产物需要登录 GitHub 下载，真实配置仍锁定。
+
+软件三审：**97 / 96 / 96 分**。[验证记录](docs/verification.md)包含 Windows/macOS 打包启动及 Linux 测试证据；真机验收独立进行，目前尚未通过。
+
 ## 先准备这几样
 
 - 大疆**第一代** 4G 模块，内部为兼容的移远 EG25-G。外观相似或第二代产品不代表支持。

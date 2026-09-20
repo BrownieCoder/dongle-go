@@ -47,10 +47,12 @@ An “Online” claim needs evidence that internet traffic uses the dongle; succ
 
 ## Review records / 审核记录
 
+Software preview reviews are complete at 97/96/96; see [software evidence](verification.md). The following table retains the **overall hardware-dependent acceptance** result. / 软件预览三审已完成，分数为 97/96/96；下表仍是依赖真机证据的整体验收结果。
+
 | Independent reviewer / 独立审核人 | Score / 分数 | Open P0/P1 / 未关闭问题 | Evidence / 证据 | Result / 结论 |
 | --- | --- | --- | --- | --- |
-| Engineer 1 | Pending / 待评 | Pending / 待查 | Pending / 待提交 | Not accepted / 未通过 |
-| Engineer 2 | Pending / 待评 | Pending / 待查 | Pending / 待提交 | Not accepted / 未通过 |
-| Engineer 3 | Pending / 待评 | Pending / 待查 | Pending / 待提交 | Not accepted / 未通过 |
+| Engineer 1 | Overall pending / 整体待评 | No software P0/P1 / 软件无 P0/P1 | [Software 97](reviews/engineer-1.md); hardware missing / 缺真机 | Not accepted / 未通过 |
+| Engineer 2 | Overall pending / 整体待评 | No software P0/P1 / 软件无 P0/P1 | [Software 96](reviews/engineer-2.md); hardware missing / 缺真机 | Not accepted / 未通过 |
+| Engineer 3 | Overall pending / 整体待评 | No software P0/P1 / 软件无 P0/P1 | [Software 96](reviews/engineer-3.md); hardware missing / 缺真机 | Not accepted / 未通过 |
 
 Hardware gaps cannot be waived by averaging scores. Re-review the final revision after fixes. Record the public commit/tag, artifact checksums and reviewer evidence together before calling the project a mature MVP. / 不得用平均分豁免真机缺口；修复后复审最终版本；成熟 MVP 结论需绑定公开提交或标签、构建校验值及审核证据。
